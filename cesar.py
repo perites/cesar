@@ -3,6 +3,7 @@ import string
 
 letter_l = list(string.ascii_lowercase)
 letter_u = list(string.ascii_uppercase)
+letter_p = list(string.punctuation)
 nletters_l = 	{}
 nletters_u = {}
 
@@ -23,8 +24,12 @@ def encryption(word,step):
 				new_word.append(nletters_l[l])
 			elif l in letter_u:
 				new_word.append(nletters_u[l])
+			elif l in letter_p:
+				new_word.append(l)
 		else:
 			new_word.append(" ")
+
+
 	new_word = "".join(new_word)
 	return new_word
 
@@ -37,7 +42,7 @@ def encryption(word,step):
 print(encryption("aaa" , 3) == "ddd")
 print(encryption("ZZZ" , 3) == "CCC")
 print(encryption("bBb" , 3) == "eEe")
-print(encryption("CcC" , 3) == "FfF")
+print(encryption("CcC," , 3) == "FfF,")
 
 
 step = int(input("step : "))
